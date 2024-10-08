@@ -1,1 +1,24 @@
-118
+<!-- 
+종합예제 페이지 119쪽
+ 파일명:code_119_1.html 
+-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="page-wrapper"></div>
+    <header id="main-header"></header>
+    <nav id="main-navigaiton"></nav>
+    <div id="contect">
+        <section id="main-aside"></section>
+        <aside id="main-aside"></aside>
+    </div>
+    <footer id="main-footer"></footer>
+</body>
+</html>
