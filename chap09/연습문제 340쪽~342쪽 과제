@@ -22,26 +22,189 @@
 <!--연습문제 페이지 340 문제 13번
  파일명:code_340_13.html -->
 
-if (x > 10 && x < 20) {
-    alert(x);
-}
-
+ <script>
+        function checkNumber() {
+            const x = parseInt(document.getElementById('numberInput').value);
+            if (x > 10 && x < 20) {
+                alert(x);
+            } else {
+                alert("The number is not between 10 and 20.");
+            }
+        }
+    </script>
 
 <!--연습문제 페이지 341 문제 14번
  파일명:code_341_14.html -->
 
-let i = 1; 
-while (i <= 10) { 
-    if (i % 5 == 0) {
-        alert(i);
-    }
-    i++; 
-}
+       <script>
+        function showAlerts() {
+            let i = 1;
+            while (i <= 10) {
+                if (i % 5 == 0) {
+                    alert(i);
+                }
+                i++;
+            }
+        }
+    </script>
 
 
 <!--연습문제 페이지 341 문제 15번
  파일명:code_341_15.html -->
 
-for (let i = 10; i >= 0; i -= 3) {
-    alert(i);
-}
+   <script>
+        function startCountdown() {
+            for (let i = 10; i >= 0; i -= 3) {
+                alert(i);
+            }
+        }
+    </script>
+
+<!--연습문제 페이지 341 문제 16번
+ 파일명:code_341_16.html -->
+  <script>
+        function convert() {
+            const cm = document.getElementById('cmInput').value;
+            const totalInches = cm / 2.54;
+            const feet = Math.floor(totalInches / 12);
+            const inches = (totalInches % 12).toFixed(2);
+            document.getElementById('result').textContent = 
+                `${cm} cm = ${feet} feet ${inches} inches`;
+        }
+    </script>
+
+<!--연습문제 페이지 341 문제 17번
+ 파일명:code_341_17.html -->
+
+   <script>
+        function calculateVolume() {
+            const radius = parseFloat(document.getElementById('radius').value);
+            const height = parseFloat(document.getElementById('height').value);
+            if (isNaN(radius) || isNaN(height) || radius <= 0 || height <= 0) {
+                document.getElementById('result').textContent = "반지름과 높이를 입력하세요.";
+                return;
+            }
+            const pi = Math.PI;  // 원주율
+            const volume = pi * radius * radius * height; // 부피 계산
+            document.getElementById('result').textContent = `원기둥의 부피는 약 ${volume.toFixed(2)} cm³ 입니다.`;
+        }
+    </script>
+
+
+
+<!--연습문제 페이지 341 문제 18번
+ 파일명:code_341_18.html -->
+
+  <script>
+        function splitNumber() {
+            const num = prompt("네 자리 정수를 입력하세요:");
+            
+            if (num.length !== 4 || isNaN(num)) {
+                document.getElementById('result').textContent = "유효한 네 자리 정수를 입력하세요.";
+                return;
+            }
+
+            const thousands = parseInt(num / 1000);
+            const hundreds = parseInt((num % 1000) / 100);
+            const tens = parseInt((num % 100) / 10);
+            const ones = parseInt(num % 10);
+
+            document.getElementById('result').textContent = 
+                `천의 자리: ${thousands}, 백의 자리: ${hundreds}, 십의 자리: ${tens}, 일의 자리: ${ones}`;
+        }
+    </script>
+
+
+<!--연습문제 페이지 342 문제 19번
+ 파일명:code_342_19.html -->
+
+ <script>
+        function calculateZodiac() {
+            const year = prompt("태어난 연도를 입력하세요:");
+            
+            if (isNaN(year) || year.trim() === "") {
+                document.getElementById('result').textContent = "유효한 연도를 입력하세요.";
+                return;
+            }
+
+            const zodiacArray = [
+                "원숭이띠", "닭띠", "개띠", "돼지띠",
+                "쥐띠", "소띠", "범띠", "토끼띠",
+                "용띠", "뱀띠", "말띠", "양띠"
+            ];
+
+            const remainder = year % 12;
+            const zodiac = zodiacArray[remainder];
+
+            document.getElementById('result').textContent = `${year}년은 ${zodiac}입니다.`;
+        }
+    </script>
+
+<!--연습문제 페이지 342 문제 20번
+ 파일명:code_342_20.html -->
+
+
+    <script>
+        function printPattern() {
+            let result = "";
+            const rows = 5; // 패턴의 줄 수
+
+            for (let i = 1; i <= rows; i++) { 
+                for (let j = 1; j <= i; j++) { 
+                    result += "*"; // 별 추가
+                }
+                result += "\n"; 
+            }
+
+            document.getElementById('pattern').textContent = result;
+        }
+    </script>
+
+<!--연습문제 페이지 342 문제 21번
+ 파일명:code_342_21.html -->
+
+  <script>
+        function factorial(n) {
+            if (n < 0) {
+                return "팩토리얼은 음수에 대해 정의되지 않습니다.";
+            }
+            if (n === 0 || n === 1) {
+                return 1;
+            }
+            let result = 1;
+            for (let i = 2; i <= n; i++) {
+                result *= i;
+            }
+            return result;
+        }
+
+        function calculateFactorial() {
+            const num = parseInt(document.getElementById('numberInput').value);
+            if (isNaN(num)) {
+                document.getElementById('result').textContent = "유효한 숫자를 입력하세요.";
+                return;
+            }
+
+            const result = factorial(num);
+            document.getElementById('result').textContent = `${num}! = ${result}`;
+        }
+    </script>
+
+
+<!--연습문제 페이지 342 문제 22번
+ 파일명:code_342_22.html -->
+
+const book = {
+    name: "C#프로그래밍",
+    firstEditionDate: "2021년 1월 5일",
+    author: "윤인성",
+    publisher: "전태호",
+    publishingCompany: "한빛아카데미(주)",
+    editorInChief: "김성무",
+    planning: "김성무",
+    editing: "정서린",
+    design: "최연희, 이아란"
+};
+
+console.log(book);
+
